@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="resources/main.css">
+  <title>Register</title>
+</head>
+
+<body>
+  <div id="main-container">
+
+    <header>
+      <a class="nav-options" href="/">World Clocks</a>
+      <a href="/login">
+        <form action="/logout?_method=DELETE" method="POST"></form>
+        <button class="button">Login</button>
+        </form>
+      </a>
+    </header>
+
+
+    <!--    Main content of the page starts here    -->
+    <!--    Contains a title, a form, hyperlink to login page and a footer    -->
+
+    <h2 class="h2-login-register">Check the time in up to 3 different time zones.</h2>
+    <div class="form">
+      <%- include('./messages.ejs'); %>
+      <form action="/register" method="POST">
+
+
+        <!--    Each text+input field are wrapped in a credentials-container,    -->
+        <!--    which then contains 3 individual "each-container"s.    -->
+        <!--    Each of them has a div containing the description and a input field    -->
+        <!--    The form ends with a button which submits the form and redirects to the index.ejs    -->
+
+        <div class="credentials-container">
+          <div class="each-container">
+            <div class="column-inputs">Name:</div>
+            <input type="name" id="name" name="name" required>
+          </div>
+          <div class="each-container">
+            <div class="column-inputs">Email:</div>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="each-container">
+            <div class="column-inputs">Password:</div>
+            <input type="password" id="password" name="password" required>
+          </div>
+        </div>
+        <div class="login-register-button">
+          <button class="button l-r-button" type="submit">
+            <p>Register</p>
+          </button>
+        </div>
+      </form>
+    </div>
+
+
+    <!--    Link to the login page if the user does not have an account    -->
+
+    <div class="text">
+      Already have an account? Click below to log in or ignore if you wish to set up a new one😎.
+      <div class="login-register">
+        <a href="/login"><button class="button">Log In Here</button></a>
+      </div>
+    </div>
+
+
+    <!--    Sticky footer    -->
+
+    <div id="footer">
+      <div id="footer-sign"><span id="sign">Coded by </span>M<span class="sign-next">ichal </span>J<span
+          class="sign-next"></span> S<span class="sign-next">ekulski</span>, 2020
+      </div>
+    </div>
+  </div>
+  <script src="resources/modal-and-clocks.js"></script>
+</body>
+
+</html>

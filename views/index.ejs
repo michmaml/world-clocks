@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="resources/main.css">
+  <title>World Clocks</title>
+</head>
+
+<body>
+  <div id="main-container">
+
+    <header>
+      <a class="nav-options" href="/index">World Clocks</a>
+      <a class="nav-options about" href="/about">About</a>
+      <a href="/logout">
+          <button class="button">Logout</button>
+      </a>
+    </header>
+
+
+    <!--    Main content of the page starts here    -->
+    <!--    Contains a title, 3 rectangles for maps and a footer    -->
+
+    <h2><%= name %>, Check the time in up to 3 different time zones.</h2>
+    <p id="sub-title-index">Do not forget to sign up to save your clocks.</p>
+
+
+    <!--    bottom-container contains 3 clocks. Each of them is a image and a description    -->
+    <!--    fot the user that these fields are actually clickable   -->
+
+    <div class="bottom-container">
+
+      <div class="clock" id="clock1" data-clock>
+        <button class="button-modal face btn1" id="btn1" title="Add a clock" onclick="getID(this.id)">
+          <img src="resources/plus-icon.png" alt="+" class="plus-img btn1">
+          <p class="border btn1">Add a clock</p>
+
+
+    <!--    This is the clock itself, disabled and turned on when the user chooses the city   -->
+
+          <div class="clock-face btn1" style="display: none;">
+            <div class="timezone btn1"></div>
+            <div class="hand hour btn1"></div>
+            <div class="hand minute btn1"></div>
+            <div class="hand second btn1"></div>
+          </div>
+
+        </button>
+      </div>
+
+      <div class="clock" id="clock2" data-clock>
+        <button class="button-modal face btn2" id="btn2" title="Add a clock" onclick="getID(this.id)">
+          <img src="resources/plus-icon.png" alt="+" class="plus-img btn2">
+          <p class="border btn2">Add a clock</p>
+
+
+    <!--    This is the clock itself, disabled and turned on when the user chooses the city   -->
+
+          <div class="clock-face btn2" style="display: none;">
+            <div class="timezone btn2"></div>
+            <div class="hand hour btn2"></div>
+            <div class="hand minute btn2"></div>
+            <div class="hand second btn2"></div>
+          </div>
+
+        </button>
+      </div>
+
+      <div class="clock" id="clock3" data-clock>
+        <button class="button-modal face btn3" id="btn3" title="Add a clock" onclick="getID(this.id)">
+          <img src="resources/plus-icon.png" alt="+" class="plus-img btn3">
+          <p class="border btn3">Add a clock</p>
+
+
+    <!--    This is the clock itself, disabled and turned on when the user chooses the city   -->
+
+          <div class="clock-face btn3" style="display: none;">
+            <div class="timezone btn3"></div>
+            <div class="hand hour btn3"></div>
+            <div class="hand minute btn3"></div>
+            <div class="hand second btn3"></div>
+          </div>
+
+        </button>
+      </div>
+
+    </div>
+
+
+    <!--    Modal   -->
+
+    <div id="my-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">&times;</span>
+          <h2>Choose the city</h2>
+        </div>
+        <div class="modal-body">
+          <div class="modal-body-grid">
+
+
+    <!--    Available cities, each button corresponds to a time value which is later turend into a clock    -->
+    <!--    First column(left)    -->        
+
+            <div class="row">
+              <div class="d-flag">
+                <button class="button-modal city" id="buenos-aires"><img src="resources/argentina.svg" alt="Buenos Aires">Buenos Aires</button>
+              </div>
+              <div class="d-flag">
+                <button class="button-modal city" id="hong-kong"><img src="resources/hong-kong.svg" alt="Hong Kong">Hong Kong</button>
+              </div>
+            </div>
+
+
+    <!--    Second column(middle)    -->   
+
+            <div class="row">
+              <div class="d-flag">
+                <button class="button-modal city"id="rome"><img src="resources/italy.svg" alt="Rome">Rome</button>
+              </div>
+              <div class="d-flag">
+                <button class="button-modal city" id="wellington"><img src="resources/new-zealand.svg"
+                    alt="Wellington">Wellington</button>
+              </div>
+            </div>
+
+
+    <!--    Third column(right)    -->   
+
+            <div class="row">
+              <div class="d-flag">
+                <button class="button-modal city" id="london"><img src="resources/uk.svg" alt="London">London</button>
+              </div>
+              <div class="d-flag">
+                <button class="button-modal city" id="washington"><img src="resources/us.svg"
+                    alt="Washington">Washington</button>
+              </div>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <h4>World Clocks</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--    Sticky footer    -->
+
+    <div id="footer">
+      <div id="footer-sign"><span id="sign">Coded by </span>M<span class="sign-next">ichal </span>J<span
+          class="sign-next"></span> S<span class="sign-next">ekulski</span>, 2020
+      </div>
+      <a id="about-footer" href="/about">About</a>
+    </div>
+
+  </div>
+  <script src="resources/modal-and-clocks.js"></script>
+</body>
+
+</html>

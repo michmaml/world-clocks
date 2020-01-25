@@ -1,0 +1,496 @@
+
+@import url('https://fonts.googleapis.com/css?family=Alata&display=swap');
+
+
+/*    I am importing the font from fonts.google.com and the dotted border used in the index.ejs   */
+
+/*    I tried to place the styles accordingly to their positions in the files so that if an element
+      appears before other element in .ejs, then this order is unchanged here as well.            */
+
+/*    Reset the default values and set the same font for all text fields. After that I devided the
+      file into 3 parts:
+          - Navigation Bar
+          - Body
+          - Footer
+      so that it is a bit easier to get around. At the end, there are 2 CSS screen breakpoint.    */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Alata";
+  text-decoration: none;
+}
+
+a,
+.button {
+  color: rgb(254, 233, 215);
+  font-size: 25px;
+  outline: 0;
+}
+
+.button:hover {
+  color: rgb(254, 233, 215);
+  background-color: rgba(226, 67, 75, 1);
+}
+
+
+
+/*Navigation Bar*/
+
+
+
+/*    Elements form the navigation bar(.nav-options)    */
+
+.nav-options {
+  font-size: 25px;
+  transition: all 0.2s ease 0s;
+  padding-right: 0.6em;
+}
+
+.nav-options:hover{
+  color: rgb(249, 191, 143);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10%;
+  background-color: rgb(52, 34, 46);
+  box-shadow: 0 10px 20px 2px rgba(0, 0, 0, 0.4);
+}
+
+.button {
+  font-size: 16px;
+  padding: 10px 25px;
+  background-color: rgba(254, 233, 215, 1);
+  color: rgb(52, 34, 46);
+  border: none;
+  border-radius: 80px;
+  outline: 0;
+  cursor: pointer;
+  transition: all 0.2s ease 0s;
+}
+
+
+
+/*Body*/
+
+
+
+/*    As all files use the same .css file, the order was set for the body: login/register, index, about.
+      If there is an element that apperas in more than one view then it has a priority.   */
+
+body {
+  background-color: rgb(249, 191, 143);
+  color: rgb(226, 67, 75);
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+h2,
+p {
+  padding-top: 15px;
+  text-align: center;
+}
+
+h2.h2-login-register {
+  margin-bottom:2%;
+}
+
+h2.h2-about {
+  margin-bottom:5%;
+}
+
+p {
+  padding-top: 10px;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
+
+
+/*    FORM FROM /login & /register    */
+
+.form {
+  display: block;
+  text-align: center;
+}
+
+.credentials-container{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.each-container {
+  margin: 0 1em 0.5em 1em;
+}
+
+.column-inputs {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+  font-size: 1.5em;
+  color: rgb(52, 34, 46);
+} 
+
+.login-register-button {
+  margin: 2.5em 0 2em 0;
+  text-align: center;
+  outline: 0;
+} 
+
+.l-r-button {
+  height: 5em;
+  width: 15em;
+  outline: 0;
+}
+
+.login-register {
+  vertical-align: middle;
+  margin-top: 0.5em;
+}
+
+input {
+  background: rgba(0, 0, 0, 0);
+  border: none;
+  border-bottom: 4px solid rgb(52, 34, 46);
+
+  font-size: 25px;
+  color: rgb(52, 34, 46);
+}
+
+
+/*    CLOCKS' DIV AND ITS ELEMENTS FROM /index. @The rectangles are declared later, before breakpoints.    */
+
+.bottom-container,
+.modal-body-grid {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 90px;
+}
+
+.clock {
+  margin: 2%;
+  padding: 100px 50px;
+  height: 100%;
+  align-self: center; 
+}
+
+.clock:hover {
+  background-color: rgb(249,197,154);
+}
+
+.button-modal {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  overflow: hidden;
+  outline:none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  transform: scale(1.1);
+}
+
+.button-modal:hover {
+  transform: scale(1.2);
+}
+
+
+/*---------------------------------------------------*/
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: rgba(249, 191, 143, 0.2);
+}
+
+.modal-content {
+  margin: 10% auto;
+  width: 60%;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 
+              0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  animation-name: modalopen;
+  animation-duration: 0.5s;
+}
+
+.modal-header h2,
+.modal-footer h4 {
+  margin: 0;
+}
+
+.modal-header {
+  background: rgb(249, 191, 143);
+  padding: 15px;
+  color: #fff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.modal-body {
+  padding: 10px 20px;
+  background: #fff;
+  width: 100%;
+}
+
+.modal-body-grid {
+  margin-bottom: 0;
+  justify-content: space-around;
+  overflow: hidden;
+}
+
+h4 {
+  color:(254, 233, 215);
+}
+
+.modal-footer {
+  background: rgb(52, 34, 46);
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.close {
+  color: #ccc;
+  float: right;
+  font-size: 30px;
+  color: #fff;
+}
+
+.close:hover,
+.close:focus {
+  color: rgb(52, 34, 46);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}
+.d-flag {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+
+
+/*---------------------------------------------------*/
+
+
+
+/*---------------------------------------------------*/
+
+
+/*    Clock faces and transitions   */
+
+.clock-face {
+  border: 0.25em solid rgb(0, 0, 0);
+  border-radius: 50%;
+  background: #fff url(/resources/clock-face.svg) no-repeat center;
+  background-size: 88%;
+  height: 10em;
+  padding-bottom: 31%;
+  position: relative;
+  width: 10em;
+  cursor: context-menu;
+}
+
+.clock-face:hover {
+  border: 0.2em solid rgb(0, 0, 0);
+}
+
+.clock-face .hand {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  border: 1px solid rgb(255, 255, 255);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transform-origin: bottom;
+  z-index: 10;
+  transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+}
+
+.clock-face .hand.second {
+  width: 0.1em;
+  height: 45%;
+  border: none;
+  background-color: rgb(255, 0, 0);
+}
+
+.clock-face .hand.minute {
+  width: 0.2em;
+  height: 40%;
+  border: none;
+  background-color: rgb(0, 0, 0);
+}
+
+.clock-face .hand.hour {
+  width: 0.3em;
+  height: 30%;
+  border: none;
+  background-color: rgb(0, 0, 0);
+}
+
+.dimmed {
+  filter: grayscale(80%);
+  pointer-events: none;
+}
+
+.timezone,
+.timezone.btn1,
+.timezone.btn2,
+.timezone.btn3 {
+  padding-top: 5em;
+  color: rgb(52, 34, 46);
+}
+
+/*---------------------------------------------------*/
+
+/*    THE TEXT IN A RECTANGLE USED IN BOTH /about & /login and /register    */
+
+.text {
+  margin: 0 25% 90px 25%;
+  padding: 10px;
+  text-align: center; 
+  
+  
+}
+
+.clock,
+.text {
+  border-style: dotted; 
+  border-color: rgb(213, 126, 0); 
+  border-image-source: url('https://cl.ly/3c2J3c0l3r0P/dots.svg');
+  border-image-slice: 20% 20%;
+  border-image-repeat: round;
+}
+
+/*Footer*/
+
+
+
+/*    Sticky footer enabled in every view   */
+
+#main-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#footer {
+  display: flex;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  align-items: center;
+  padding: 1rem;
+  
+  height: 50px;
+  margin-top: -50px;
+  background-color: rgb(243, 233, 210);
+  
+}
+
+#footer-sign {
+  float: left;
+}
+
+#about-footer {
+  margin-left: auto;
+  visibility: hidden;
+}
+
+
+
+/*    RECTANGLES USED IN THE /index.   */
+
+img {
+  padding: 0;
+  height: 70px;
+  width: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.border {
+  padding-top: 5px;
+  font-size: 25px;
+}
+
+
+
+/*Breakpoints*/
+
+
+
+/*    Used merely fot the footer as when resizing down, there is no space for /about in the navigation bar
+      and thereofre it is moved to the footer, where is it much more accessible.    */
+
+@media screen and (max-width: 550px) {
+  header {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .nav-options.about {
+    display: none;
+  }
+  
+  #sign {
+    display: none;
+  }
+
+  #about-footer {
+    color: rgb(226, 67, 75);
+    visibility: visible;
+  }
+
+  #about-footer:hover {
+    color:  rgb(52, 34, 46);
+    cursor: pointer;
+  }
+
+  /* about.ejs .text*/
+  .text {
+    margin: 5%;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .sign-next {
+    display: none;
+  }
+
+  #about-footer {
+    font-size: 16px;
+  }
+}
