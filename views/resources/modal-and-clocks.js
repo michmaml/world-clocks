@@ -1,7 +1,6 @@
 
 // Get DOM Elements
 const modal = document.querySelector('#my-modal');
-const modalBtn = document.querySelector('.button-modal.face');
 const modalBtn1 = document.querySelector('.button-modal.face.btn1');
 const modalBtn2 = document.querySelector('.button-modal.face.btn2');
 const modalBtn3 = document.querySelector('.button-modal.face.btn3');
@@ -87,8 +86,13 @@ function hideElements() {
   clockBtn.className = `clock-face ${buttonID}`;
   clockBtn.style.display = 'block';
 
-  modalBtn.className = `button-modal face ${buttonID}`
-  modalBtn.removeAttribute('title');
+  if(buttonID === 'btn1') {
+    modalBtn1.removeAttribute('title');
+  } else if(buttonID === 'btn2') {
+    modalBtn2.removeAttribute('title');
+  } else if (buttonID === 'btn3') {
+    modalBtn3.removeAttribute('title');
+  }
 }
 
 // This function gets the information which city was clicked by receiving either the 
@@ -104,9 +108,12 @@ cities.forEach((city) => {
   city.addEventListener('click', (e) => {
     const name0fTheCity = e.target.textContent || e.target.getAttribute('alt');
     console.log(buttonID);
-    cityName1.innerHTML = name0fTheCity;
-    cityName2.innerHTML = name0fTheCity;
-    cityName3.innerHTML = name0fTheCity;
+    if(buttonID === 'btn1')
+      cityName1.innerHTML = name0fTheCity;
+    else if(buttonID === 'btn2')
+      cityName2.innerHTML = name0fTheCity;
+    else if(buttonID === 'btn3')
+      cityName3.innerHTML = name0fTheCity;
     closeModal();
     hideElements();
     city.classList.add('dimmed');
