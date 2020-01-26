@@ -9,8 +9,8 @@ Later, type: _localhost:5001_ in a browser.
 Once the page loades it should be relatively clear to navigate.
 
 There is one account already created:
-⋅⋅⋅**Login:** mjsekulski1@gmail.com
-⋅⋅⋅**Password:** 123456
+  **Login:** mjsekulski1@gmail.com
+  **Password:** 123456
 
 
 If there are any questions, please do not hesitate to let me know:
