@@ -95,15 +95,18 @@ function hideElements() {
 // text or the alt value of the image. Later closes the modal and replaces the 
 // " + Add a clock" with the actual clock with the current time in the city.
 
-let cityName = document.querySelector('.timezone');
+const cityName1 = document.querySelector('.timezone.btn1');
+const cityName2 = document.querySelector('.timezone.btn2');
+const cityName3 = document.querySelector('.timezone.btn3');
 
 const cities = document.querySelectorAll('.button-modal.city');
 cities.forEach((city) => {
   city.addEventListener('click', (e) => {
     const name0fTheCity = e.target.textContent || e.target.getAttribute('alt');
     console.log(buttonID);
-    cityName.className = `timezone ${buttonID}`;
-    cityName.innerHTML = name0fTheCity;
+    cityName1.innerHTML = name0fTheCity;
+    cityName2.innerHTML = name0fTheCity;
+    cityName3.innerHTML = name0fTheCity;
     closeModal();
     hideElements();
     city.classList.add('dimmed');
