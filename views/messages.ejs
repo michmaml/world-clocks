@@ -1,3 +1,6 @@
+<!--    Error messages whenerver the user does something that should not be done    -->
+<!--    Login and register pages are the only one that use these    -->
+
 <% if(typeof errors != 'undefined'){ %> 
   <% errors.forEach(function(error) { %>
     <div> <%= error.msg %> </div>

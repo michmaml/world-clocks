@@ -1,3 +1,6 @@
+/*
+* Main file, node + express
+*/
 
 const PORT = process.env.PORT || 5001;
 const express = require('express');
@@ -17,7 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // Database connection
 
-//const database = require('./configuration/mongo_db').MongoURI;
+// Connect to the database and let me know if it was successful
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log("Connected to Database");
@@ -48,12 +51,6 @@ app.use(function(req, res, next) {
   res.locals.error = req.flash('error');
   next();
 });
-
-// Controllers
-/* app.use('/', require('./routes/generic.js'));
-app.use('/login', require('./routes/account.js'));
-app.use('/register', require('./routes/account.js')); */
-
 
 // Routes - I am placing them here as I believe the app is not big enoguh to create a separate file.
 
@@ -118,7 +115,7 @@ app.post('/register', (req, res) => {
     Account_User.findOne({ email: email }).then(user => {
         if(user) {
 
-          // If user exists
+          // If account exists
           errors.push({ msg: 'This email is alredy taken' });
           res.render('/register', {
             errors,
@@ -152,7 +149,6 @@ app.post('/register', (req, res) => {
 });
 
 
-
 // Logout from the system
 app.get('/logout', (req, res) => {
   req.logout();
@@ -161,9 +157,11 @@ app.get('/logout', (req, res) => {
 });
 
 
+// If the path does not exist
 app.get('*', function(req, res){
   res.render('invalid.ejs');
 });
 
+// Confirm it works properly
 app.listen(PORT);
 console.log(`Running on port: ${PORT}`);

@@ -1,3 +1,8 @@
+/*
+* Creates the 'template' for the database, added date for possible
+* future improvements
+*/
+
 const mongoose = require('mongoose');
 
 const AccountSchema = new mongoose.Schema({

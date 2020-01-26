@@ -35,7 +35,7 @@
         <div class="credentials-container">
           <div class="each-container">
             <div class="column-inputs">Email:</div>
-            <input type="email" id="email" name="email" value="<%= typeof email != 'undefined' ? name : '' %>" required>
+            <input type="email" id="email" name="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" value="<%= typeof email != 'undefined' ? name : '' %>" required>
           </div>
           <div class="each-container">
             <div class="column-inputs">Password:</div>
