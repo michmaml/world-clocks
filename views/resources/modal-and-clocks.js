@@ -48,9 +48,17 @@ function outsideClick(e) {
 
 // Elements from btn1
 
-let clockButtonImg = document.querySelector('.plus-img');
-let clockButtonP = document.querySelector('.border');
-let clockBtn = document.querySelector('.clock-face');
+const clockButtonImg1 = document.querySelector('.plus-img.btn1');
+const clockButtonP1 = document.querySelector('.border.btn1');
+const clockBtn1 = document.querySelector('.clock-face.btn1');
+
+const clockButtonImg2 = document.querySelector('.plus-img.btn2');
+const clockButtonP2 = document.querySelector('.border.btn2');
+const clockBtn2 = document.querySelector('.clock-face.btn2');
+
+const clockButtonImg3 = document.querySelector('.plus-img.btn3');
+const clockButtonP3 = document.querySelector('.border.btn3');
+const clockBtn3 = document.querySelector('.clock-face.btn3');
 
 // Timezones in each of the cities
 
@@ -77,20 +85,20 @@ function getTimezoneHours(city) {
 // the function abve will indicate the time difference
 
 function hideElements() {
-  clockButtonImg.className = `plus-img ${buttonID}`;
-  clockButtonImg.style.display = 'none';
-
-  clockButtonP.className = `border ${buttonID}`;
-  clockButtonP.style.display = 'none';
-
-  clockBtn.className = `clock-face ${buttonID}`;
-  clockBtn.style.display = 'block';
-
   if(buttonID === 'btn1') {
+    clockButtonImg1.style.display = 'none';
+    clockButtonP1.style.display = 'none';
+    clockBtn1.style.display = 'block';
     modalBtn1.removeAttribute('title');
   } else if(buttonID === 'btn2') {
+    clockButtonImg2.style.display = 'none';
+    clockButtonP2.style.display = 'none';
+    clockBtn2.style.display = 'block';
     modalBtn2.removeAttribute('title');
   } else if (buttonID === 'btn3') {
+    clockButtonImg3.style.display = 'none';
+    clockButtonP3.style.display = 'none';
+    clockBtn3.style.display = 'block';
     modalBtn3.removeAttribute('title');
   }
 }
@@ -131,7 +139,9 @@ const washington = document.getElementById('washington');
 // Setting the clock right so that it works with current time and moves the heads
 // in the right moment (seconds, minutes and hours)
 
-setInterval(setClock, 1000);
+setInterval(setClock1, 1000);
+setInterval(setClock2, 1000);
+setInterval(setClock3, 1000);
 
 
 // Adds the hours to the current time
@@ -145,7 +155,7 @@ Date.prototype.addHours = function (hour) {
 // Extracts the current time from the current date and ajusts it to the clicked button.
 // Firstly I needed to get each div as data-* was not cooperating
 
-function setClock() {
+function setClock1() {
   // Clock1
   const timezone1 = document.querySelector('.timezone.btn1');
   let currentDate1 = new Date();
@@ -161,7 +171,8 @@ function setClock() {
   setRotation(secondHand1, secondsRatio1);
   setRotation(minuteHand1, minutesRatio1);
   setRotation(hourHand1, hoursRatio1);
-
+}
+function setClock2() {
   // Clock2
   const timezone2 = document.querySelector('.timezone.btn2');  
   let currentDate2 = new Date();
@@ -177,7 +188,8 @@ function setClock() {
   setRotation(secondHand2, secondsRatio2);
   setRotation(minuteHand2, minutesRatio2);
   setRotation(hourHand2, hoursRatio2);
-
+}
+function setClock3() {
   // Clock3
   const timezone3 = document.querySelector('.timezone.btn3'); 
   let currentDate3 = new Date();
@@ -202,4 +214,6 @@ function setRotation(element, rotationRatio) {
   element.style.setProperty('--rotation', rotationRatio * 360);
 }
 
-setClock();
+setClock1();
+setClock2();
+setClock3();
