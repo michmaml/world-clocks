@@ -153,7 +153,6 @@ cities.forEach((city) => {
 setInterval(setClocks, 1000);
 
 
-
 // Adds the hours to the current time(time difference)
 
 Date.prototype.addHours = (hour) => {
@@ -168,8 +167,8 @@ Date.prototype.addHours = (hour) => {
 function setClocks() {
   // Clock1
   const timezone1 = document.querySelector('.timezone.btn1');
-  const currentDate1 = new Date();
-  currentDate1 = currentDate1.addHours(getTimezoneHours(timezone1.textContent));
+  let currentDate1 = new Date();
+  currentDate1.setHours(currentDate1.getHours() + getTimezoneHours(timezone1.textContent));
   const secondsRatio1 = currentDate1.getSeconds() / 60;
   const minutesRatio1 = (secondsRatio1 + currentDate1.getMinutes()) / 60;
   const hoursRatio1 = (minutesRatio1 + currentDate1.getHours()) / 12;
@@ -187,7 +186,8 @@ function setClocks() {
   // Clock2
   const timezone2 = document.querySelector('.timezone.btn2');
   const currentDate2 = new Date();
-  currentDate2 = currentDate2.addHours(getTimezoneHours(timezone2.textContent));
+  //currentDate2 = currentDate2.addHours(getTimezoneHours(timezone2.textContent));
+  currentDate2.setHours(currentDate2.getHours() + getTimezoneHours(timezone2.textContent));
   const secondsRatio2 = currentDate2.getSeconds() / 60;
   const minutesRatio2 = (secondsRatio2 + currentDate2.getMinutes()) / 60;
   const hoursRatio2 = (minutesRatio2 + currentDate2.getHours()) / 12;
@@ -205,7 +205,8 @@ function setClocks() {
   // Clock3
   const timezone3 = document.querySelector('.timezone.btn3');
   const currentDate3 = new Date();
-  currentDate3 = currentDate3.addHours(getTimezoneHours(timezone3.textContent));
+  //currentDate3 = currentDate3.addHours(getTimezoneHours(timezone3.textContent));
+  currentDate3.setHours(currentDate3.getHours() + getTimezoneHours(timezone3.textContent));
   const secondsRatio3 = currentDate3.getSeconds() / 60;
   const minutesRatio3 = (secondsRatio3 + currentDate3.getMinutes()) / 60;
   const hoursRatio3 = (minutesRatio3 + currentDate3.getHours()) / 12;
