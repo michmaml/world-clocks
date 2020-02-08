@@ -99,12 +99,12 @@ function getTimezoneHours(city) {
 // Removes the button and replaces it with the clock. This function is used in setClocks()
 
 function hideElements() {
-  if(buttonID === 'btn1') {
+  if (buttonID === 'btn1') {
     clockButtonImg1.style.display = 'none';
     clockButtonP1.style.display = 'none';
     clockBtn1.style.display = 'block';
     modalBtn1.removeAttribute('title');
-  } else if(buttonID === 'btn2') {
+  } else if (buttonID === 'btn2') {
     clockButtonImg2.style.display = 'none';
     clockButtonP2.style.display = 'none';
     clockBtn2.style.display = 'block';
@@ -133,17 +133,17 @@ cities.forEach((city) => {
     const name0fTheCity = e.target.textContent || e.target.getAttribute('alt');
 
     // Check which button was pressed and insert the city's name there
-    if(buttonID === 'btn1')
+    if (buttonID === 'btn1')
       cityName1.innerHTML = name0fTheCity;
-    else if(buttonID === 'btn2')
+    else if (buttonID === 'btn2')
       cityName2.innerHTML = name0fTheCity;
-    else if(buttonID === 'btn3')
+    else if (buttonID === 'btn3')
       cityName3.innerHTML = name0fTheCity;
     closeModal();
     hideElements();
     city.classList.add('dimmed');
   });
-}); 
+});
 
 
 
@@ -156,7 +156,7 @@ setInterval(setClocks, 1000);
 
 // Adds the hours to the current time(time difference)
 
-Date.prototype.addHours = function (hour) {
+Date.prototype.addHours = (hour) => {
   this.setHours(this.getHours() + hour);
   return this;
 }
@@ -176,7 +176,7 @@ function setClocks() {
 
   const secondHand1 = document.querySelector('.hand.second.btn1');
   const minuteHand1 = document.querySelector('.hand.minute.btn1');
-  const hourHand1 = document.querySelector('.hand.hour.btn1');   
+  const hourHand1 = document.querySelector('.hand.hour.btn1');
 
   setRotation(secondHand1, secondsRatio1);
   setRotation(minuteHand1, minutesRatio1);
@@ -185,34 +185,34 @@ function setClocks() {
 
 
   // Clock2
-  const timezone2 = document.querySelector('.timezone.btn2');  
+  const timezone2 = document.querySelector('.timezone.btn2');
   const currentDate2 = new Date();
   currentDate2 = currentDate2.addHours(getTimezoneHours(timezone2.textContent));
   const secondsRatio2 = currentDate2.getSeconds() / 60;
   const minutesRatio2 = (secondsRatio2 + currentDate2.getMinutes()) / 60;
   const hoursRatio2 = (minutesRatio2 + currentDate2.getHours()) / 12;
- 
+
   const secondHand2 = document.querySelector('.hand.second.btn2');
   const minuteHand2 = document.querySelector('.hand.minute.btn2');
-  const hourHand2 = document.querySelector('.hand.hour.btn2');  
+  const hourHand2 = document.querySelector('.hand.hour.btn2');
 
   setRotation(secondHand2, secondsRatio2);
   setRotation(minuteHand2, minutesRatio2);
   setRotation(hourHand2, hoursRatio2);
 
 
-  
+
   // Clock3
-  const timezone3 = document.querySelector('.timezone.btn3'); 
+  const timezone3 = document.querySelector('.timezone.btn3');
   const currentDate3 = new Date();
   currentDate3 = currentDate3.addHours(getTimezoneHours(timezone3.textContent));
   const secondsRatio3 = currentDate3.getSeconds() / 60;
   const minutesRatio3 = (secondsRatio3 + currentDate3.getMinutes()) / 60;
   const hoursRatio3 = (minutesRatio3 + currentDate3.getHours()) / 12;
-  
+
   const secondHand3 = document.querySelector('.hand.second.btn3');
   const minuteHand3 = document.querySelector('.hand.minute.btn3');
-  const hourHand3 = document.querySelector('.hand.hour.btn3');  
+  const hourHand3 = document.querySelector('.hand.hour.btn3');
 
   setRotation(secondHand3, secondsRatio3);
   setRotation(minuteHand3, minutesRatio3);
