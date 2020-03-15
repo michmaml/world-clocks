@@ -2,6 +2,8 @@
 Simple webiste made in my free time.
 The idea originated when I moved to the Hong Kong for the very firt time and I thougth that I would facilitate the checking process. After that I added the option to choose out of 6 cities and possible user registration. 
 
+# Link to the demo : https://youtu.be/1emNbabuiDk
+
 ## How to use the app
 Once downloaded, run the script placed in the package.json **serverStart** and because nodemon is also installed there is no need to constantly restart server.js.
 
